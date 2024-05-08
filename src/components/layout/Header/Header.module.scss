@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: 100px;
+    padding:0px 50px;
+    background-color: gray;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+.MenuItems{
+    flex: 1;
+    text-align: right;
+    ul {
+            display: inline-block;
+            list-style-type: none;
+        }
+        li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        li a {
+            text-decoration: none;
+            color: #000;
+        }
+        li a:hover {
+            color: #11afd2;
+            text-decoration: underline;
+        }
+}
