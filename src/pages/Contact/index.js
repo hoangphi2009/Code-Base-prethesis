@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Contact.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 const cx = classNames.bind(styles);
 function Contact() {
@@ -34,7 +34,7 @@ function Contact() {
                         </div>
                     </div>
                     <div className={cx('phone')}>
-                        <FontAwesomeIcon icon={faLocationDot} className={cx('icon')} />
+                        <FontAwesomeIcon icon={faPhone} className={cx('icon')} />
                         <div className={cx('text')}>
                             <h3>Phone</h3>
                             <p>03-278-767-92</p>
