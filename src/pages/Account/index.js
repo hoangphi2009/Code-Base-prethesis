@@ -3,26 +3,37 @@ import styles from './Account.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faKey } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import './LoginValidation';
 import Validation from "./LoginValidation";
+import axios from 'axios';
 const cx = classNames.bind(styles)
 function Account() {
     const [values, setValues] = useState({
         email: '',
         password: ''
     })
-    const [errors,setErrors] = useState({
-
+    const [errors, setErrors] = useState({
     })
-    const handleSubmit = (event) =>{
+    const navigate = useNavigate();
+    const handleSubmit = (event) => {
         event.preventDefault();
-        // setValues(validation(values));
         setErrors(Validation(values));
+        if (errors.email === "" && errors.password === "") {
+            axios.post('http://localhost:5500/account', values)
+                .then(res => {
+                    if (res.data === "Success") {
+                        navigate('/')
+                    } else {
+                        alert("Email or password is incorrect")
+                    }
+                })
+                .catch(err => console.log(err));
+        }
     }
     const handleInput = (event) => {
-        setValues(prev => ({ ...prev, [event.target.name]: [event.target.value]}))
+        setValues(prev => ({ ...prev, [event.target.name]: [event.target.value] }))
     }
     return (
         <div className={cx('register')}>
@@ -39,7 +50,7 @@ function Account() {
                             </span>
                             <input type="email" id="email" name="email" required="" onChange={handleInput} />
                             <label htmlFor="email">Email</label>
-                            {errors.email && <span className={cx('warning')}>{errors.email}</span>} 
+                            {errors.email && <span className={cx('warning')}>{errors.email}</span>}
                         </div>
                         <div className={cx('input-box')}>
                             <span className={cx('icon')}>

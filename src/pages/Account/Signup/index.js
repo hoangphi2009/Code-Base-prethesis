@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import classNames from "classnames/bind";
 import styles from "./Signup.module.scss";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faKey, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import Validation from './SignupValidation';
-
+import axios from 'axios';
 const cx = classNames.bind(styles);
 
 function Signup() {
@@ -16,10 +16,17 @@ function Signup() {
         password: ''
     });
     const [errors, setErrors] = useState({});
-
+    const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validation(values));
+        if (errors.name === "" && errors.email === "" && errors.password === "") {
+            axios.post('http://localhost:5500/signup', values)
+                .then(res => {
+                    navigate('/account');
+                })
+                .catch(err => console.log(err));
+        }
     };
 
     const handleInput = (event) => {
