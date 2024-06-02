@@ -1,29 +1,31 @@
-import classNames from "classnames/bind";
-import styles from './Account.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faKey } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from 'react';
+import classNames from "classnames/bind";
+import styles from "./Signup.module.scss";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark, faKey, faUser } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import './LoginValidation';
-import Validation from "./LoginValidation";
-const cx = classNames.bind(styles)
-function Account() {
+import Validation from './SignupValidation';
+
+const cx = classNames.bind(styles);
+
+function Signup() {
     const [values, setValues] = useState({
+        name: '',
         email: '',
         password: ''
-    })
-    const [errors,setErrors] = useState({
+    });
+    const [errors, setErrors] = useState({});
 
-    })
-    const handleSubmit = (event) =>{
+    const handleSubmit = (event) => {
         event.preventDefault();
-        // setValues(validation(values));
         setErrors(Validation(values));
-    }
+    };
+
     const handleInput = (event) => {
-        setValues(prev => ({ ...prev, [event.target.name]: [event.target.value]}))
-    }
+        setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
+    };
+
     return (
         <div className={cx('register')}>
             <div className={cx('wrapper')}>
@@ -31,15 +33,23 @@ function Account() {
                     <FontAwesomeIcon icon={faCircleXmark} />
                 </button>
                 <div className={cx('loginForm')}>
-                    <h2>Login</h2>
-                    <form action="" onSubmit={handleSubmit}>
+                    <h2>Sign-Up</h2>
+                    <form action='' onSubmit={handleSubmit}>
+                        <div className={cx('input-box')}>
+                            <span className={cx('icon')}>
+                                <FontAwesomeIcon icon={faUser} />
+                            </span>
+                            <input type="text" id="name" name="name" required="" onChange={handleInput} />
+                            <label htmlFor="name">Name</label>
+                            {errors.name && <span className={cx('warning')}>{errors.name}</span>}
+                        </div>
                         <div className={cx('input-box')}>
                             <span className={cx('icon')}>
                                 <FontAwesomeIcon icon={faEnvelope} />
                             </span>
                             <input type="email" id="email" name="email" required="" onChange={handleInput} />
                             <label htmlFor="email">Email</label>
-                            {errors.email && <span className={cx('warning')}>{errors.email}</span>} 
+                            {errors.email && <span className={cx('warning')}>{errors.email}</span>}
                         </div>
                         <div className={cx('input-box')}>
                             <span className={cx('icon')}>
@@ -49,27 +59,17 @@ function Account() {
                             <label htmlFor="password">Password</label>
                             {errors.password && <span className={cx('warning')}>{errors.password}</span>}
                         </div>
-                        <div className={cx('remember-forgot')}>
-                            <label>
-                                <input type="checkbox" />
-                                Remenber me
-                            </label>
-                            <Link>Forgot Password</Link>
-                        </div>
                         <button type="submit" className={cx('btn-account')}>
-                            Login
+                            SignUp
                         </button>
-                        <div className={cx('login-register')}>
-                            <p>
-                                Don't have an account?
-                                <Link to="/signup" className={cx('register-link')}>Register</Link>
-                            </p>
-                        </div>
                     </form>
+                    <button className={cx('btn-account')}>
+                        <Link to="/account" className={cx('register-link')}>Login</Link>
+                    </button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Account;
+export default Signup;
