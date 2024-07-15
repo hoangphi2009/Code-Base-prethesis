@@ -1,0 +1,66 @@
+
+.swiper-container {
+    //background-color: blue;
+    width: 1200px;
+    margin: auto;
+
+    .card-holder {
+        color: rgb(0, 0, 0);
+        // border: 5px solid black;
+        .cartBox {
+            margin: 10px 9x;
+            display: flex;
+            .card {
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(234, 185, 230, 0.908);
+                border-radius: 1.5rem;
+                border: 1px solid rgb(214, 80, 80);
+                cursor: pointer;
+                padding: 0 10px;
+                margin: 5px; // Add margin to space the cards 10px apart (5px on each side)
+
+                .image-holder {
+                    display: flex;
+                    justify-content: center;
+
+                    .image {
+                        border-radius: 50%;
+                        height: 120px;
+                        width: 120px;
+                        margin-top: 1rem;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: white;
+                    border-radius: 1.5rem;
+                    gap: 1.5rem;
+                    padding: auto;
+                    padding-left: 1.5rem;
+                    padding-right: 1.5rem;
+
+                    .name {
+                        font-size: large;
+                        font-weight: bold;
+                    }
+
+                    .read-btn {
+                        display: inline-block;
+                        background-color: rgb(202, 234, 234);
+                        font-size: medium;
+                        border-radius: 0.3rem;
+                        //margin-top: 1.5rem;
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+

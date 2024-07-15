@@ -26,8 +26,8 @@ function Product() {
             })
         });
         setJobs(tempJobs);
-        console.log("all jobs: ",tempJobs);
-        
+        console.log("all jobs: ", tempJobs);
+
     }
     const fetchJobsCustom = async (jobCriteria) => {
         setCustomSearch(true);
@@ -60,9 +60,11 @@ function Product() {
             </div>
             <SearchBar fetchJobsCustom={fetchJobsCustom} />
             {customSearch &&
-                <button onClick={fetchJobs}>
-                    <p>Clear Filters</p>
-                </button>
+                <div className={cx('clearFilter')}>
+                    <button onClick={fetchJobs} className={cx('clearFilter-btn')}>
+                        <p>Clear Filters</p>
+                    </button>
+                </div>
             }
             {jobs.length > 0 ? (
                 jobs.map((job) => (

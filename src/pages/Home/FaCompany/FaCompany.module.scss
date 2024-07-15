@@ -1,0 +1,18 @@
+.popular-companies-container{
+    font-family: 'Calibri';
+    display: flex;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    justify-content: left;
+    padding-left: 8.5rem;
+    padding-right: 2.5rem;
+    background-color: white;
+
+    .title{
+        color: rgb(239, 20, 20);
+    }
+
+    .co-title{
+        color: rgb(60, 28, 28);
+    }
+}
