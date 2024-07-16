@@ -1,9 +1,10 @@
 import FaCompany from "./FaCompany";
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss'
+import FaRecruiter from "./FaRecruiter";
 const cx = classNames.bind(styles);
 function Home() {
-    return ( 
+    return (
         <div>
             <div className={cx('container')}>
                 <div className={cx("welcomBar")}>
@@ -21,9 +22,12 @@ function Home() {
                 </div>
             </div>
             <FaCompany />
+            <div className={cx('FaRecruiter_container')}>
+                <FaRecruiter />
+            </div>
         </div>
-        
-     );
+
+    );
 }
 
 export default Home;

@@ -1,0 +1,38 @@
+.container {
+    width:  1200px;
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.swiper_container {
+    position: relative;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(4, 167, 207, 0.1);
+    width: 20%; /* Adjusted width to make slides narrower */
+    height: 20%; /* Adjusted height to match width */
+
+}
+
+.image {
+    height: 80%;
+    width: 80%;
+    object-fit: contain; /* Use 'contain' to keep logo aspect ratio */
+}

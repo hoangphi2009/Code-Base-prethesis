@@ -18,7 +18,6 @@ function FaCompany() {
       </div>
       <SliderBar />
     </div>
-
   )
 }
 

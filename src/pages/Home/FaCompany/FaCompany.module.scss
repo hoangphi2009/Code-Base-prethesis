@@ -1,6 +1,5 @@
 .popular-companies-container{
     font-family: 'Calibri';
-    display: flex;
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
     justify-content: left;
@@ -9,6 +8,9 @@
     background-color: white;
 
     .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: rgb(239, 20, 20);
     }
 
