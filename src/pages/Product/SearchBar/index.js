@@ -27,7 +27,7 @@ function SearchBar(props) {
         <div className={cx('container')}>
             <select onChange={handleChange} name="title" value={jobCriteria.title} className={cx('searchBar-btn')}>
                 <option value="" disabled hidden>Job Roles</option>
-                <option value="iOS Developer">iOS Developer</option>
+                <option value="IOS Developer">IOS Developer</option>
                 <option value="Frontend Developer">Frontend Developer</option>
                 <option value="Backend Developer">Backend Developer</option>
                 <option value="Android Developer">Android Developer</option>

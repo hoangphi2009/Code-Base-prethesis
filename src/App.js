@@ -7,7 +7,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Account from './pages/Account';
 import Signup from './pages/Account/Signup';
-
+import GlobalStyles from './components/GlobalStyles';
 function App() {
   return (
     <div className="App">
